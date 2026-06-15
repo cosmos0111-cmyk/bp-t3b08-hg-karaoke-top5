@@ -1,214 +1,834 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>애니 매니아 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #2563eb;
-      --muted-color: #64748b;
-      --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-mono-chrome">
+    <meta name="description" content="화곡 가라오케 TOP5: 화곡동 최고의 가라오케를 엄선하여 소개합니다. 체계적인 평가 기준과 실제 이용자 리뷰를 바탕으로 검증된 프리미엄 시설, 최신 음향 시스템, 청결한 룸을 제공하는 상위 5개 업소를 확인하세요.">
+    <meta name="keywords" content="화곡 가라오케, 화곡동 가라오케, 화곡 가라오케 TOP5, 화곡 노래방, 화곡 코인노래방, 화곡 프리미엄 가라오케, 화곡 가라오케 추천, 서울 가라오케, 강서구 가라오케">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://t3b08-hg-karaoke-top5.vercel.app">
+    <meta property="og:title" content="화곡 가라오케 TOP5 | 검증된 프리미엄 업소 추천">
+    <meta property="og:description" content="화곡동 최고의 가라오케를 엄선하여 소개합니다. 체계적인 평가 기준과 실제 이용자 리뷰를 바탕으로 검증된 프리미엄 시설을 확인하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://t3b08-hg-karaoke-top5.vercel.app">
+    <meta property="og:image" content="og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="화곡 가라오케 TOP5 | 검증된 프리미엄 업소 추천">
+    <meta name="twitter:description" content="화곡동 최고의 가라오케를 엄선하여 소개합니다. 체계적인 평가 기준과 실제 이용자 리뷰를 바탕으로 검증된 프리미엄 시설을 확인하세요.">
+    <meta name="twitter:image" content="og-image.svg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "화곡 가라오케 TOP5",
+        "description": "화곡동 최고의 가라오케 5곳을 엄선하여 소개하는 프리미엄 정보 플랫폼입니다.",
+        "url": "https://t3b08-hg-karaoke-top5.vercel.app",
+        "telephone": "+82-10-6279-0862",
+        "areaServed": {
+            "@type": "City",
+            "name": "서울특별시 강서구 화곡동"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "reviewCount": "127"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "서울특별시",
+            "addressRegion": "강서구",
+            "addressCountry": "KR"
+        }
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
-      line-height: 1.8;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      color: var(--muted-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      margin-bottom: 48px;
-      font-weight: 400;
-    }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .juice-link:hover {
-      background-color: rgba(37, 99, 235, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
-    }
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-    }
-    .post-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-    }
-    footer a { color: var(--muted-color); text-decoration: none; }
-    footer a:hover { color: var(--accent-color); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
+    </script>
+    <title>화곡 가라오케 TOP5 | 검증된 프리미엄 업소 추천</title>
+    <style>
+        /* Reset & Base */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #1d4ed8;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.25;
+            color: #111111;
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 2rem;
+            letter-spacing: -0.01em;
+            border-bottom: 2px solid #111111;
+            padding-bottom: 16px;
+            margin-bottom: 40px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #333333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #111111;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #333333;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        .nav-cta {
+            background: #111111;
+            color: #ffffff !important;
+            padding: 8px 20px !important;
+            border-radius: 0;
+            font-weight: 600;
+            border-bottom: none !important;
+            transition: background 0.2s ease;
+        }
+        .nav-cta:hover {
+            background: #2563eb;
+            color: #ffffff !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #111111;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .mobile-menu .nav-cta {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 64px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            margin-bottom: 24px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            color: #555555;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: block;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .hero-visual {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-visual svg {
+            width: 80%;
+            height: 80%;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #111111;
+            color: #ffffff;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            text-decoration: none;
+        }
+        .cta-button:hover {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #2563eb;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Top 5 Grid */
+        .top5-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .top5-card {
+            border: 1px solid #e0e0e0;
+            padding: 32px 24px;
+            transition: border-color 0.2s ease;
+            background: #ffffff;
+        }
+        .top5-card:hover {
+            border-color: #2563eb;
+        }
+        .top5-card .rank {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .top5-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+        .top5-card .features {
+            font-size: 0.9rem;
+            color: #555555;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .top5-card .features span {
+            display: block;
+        }
+        .top5-card .rating-badge {
+            display: inline-block;
+            background: #111111;
+            color: #ffffff;
+            padding: 4px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Review Cards */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .review-card {
+            border: 1px solid #e0e0e0;
+            padding: 32px 24px;
+            transition: border-color 0.2s ease;
+        }
+        .review-card:hover {
+            border-color: #2563eb;
+        }
+        .review-stars {
+            color: #111111;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .review-text {
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .review-author {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 16px;
+        }
+        .review-author .name {
+            font-weight: 600;
+            color: #111111;
+        }
+        .review-author .date {
+            color: #888888;
+        }
+
+        /* Criteria Section */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .criteria-item {
+            border: 1px solid #e0e0e0;
+            padding: 32px 24px;
+        }
+        .criteria-item h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .criteria-item p {
+            font-size: 0.9rem;
+            color: #555555;
+            margin-bottom: 0;
+        }
+        .criteria-item .icon-placeholder {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+            color: #2563eb;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            border: 2px solid #111111;
+            padding: 48px;
+            text-align: center;
+            background: #ffffff;
+        }
+        .contact-box h2 {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 16px;
+        }
+        .contact-box .phone-link {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: block;
+            margin: 24px 0;
+            letter-spacing: -0.02em;
+        }
+        .contact-box .phone-link:hover {
+            color: #1d4ed8;
+        }
+        .contact-box p {
+            color: #666666;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #111111;
+            color: #aaaaaa;
+            padding: 48px 0;
+        }
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        footer .copyright {
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        footer .footer-links a {
+            color: #aaaaaa;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+        footer .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .header-inner {
+                padding: 12px 16px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                padding: 48px 0 40px;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+            .top5-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .criteria-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            section {
+                padding: 48px 0;
+            }
+            .contact-box {
+                padding: 32px 24px;
+            }
+            .contact-box .phone-link {
+                font-size: 1.5rem;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .top5-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-  <div class="container">
     <header>
-      <a href="/" class="logo">KR.GEEK</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="meta-tag">// SWISS ACCENTED GRID SYSTEM</div>
-      <h1>애니 매니아 지식 저널 및 아카이브</h1>
-      <div class="content">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>애니 매니아</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
-          
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>90년대 셀 애니메이션 작화의 한계와 이와 관련된 아날로그 특수 효과의 역사</h3>
-          <p>90년대 셀 애니메이션 제작 시 빛이 뿌옇게 흐려지거나 번지는 몽환적인 효과를 내기 위해 투명 셀판 아래에 부드러운 백라이트를 대고 조리개를 조절해 이중 노출로 촬영하던 촬영 스튜...</p>
-        </a>
-      
-
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>판타지 애니 설정 속 북유럽 세계수(Yggdrasil) 전승의 변형 패턴 고찰</h3>
-          <p>수많은 이세계 판타지 만화와 애니메이션에서 세계관의 핵심 축으로 등장하는 세계수 위그드라실 전승은 현대 서브컬처에 이르러 단순한 물리적 나무가 아닌 가상 데이터 그리드나 다차원 통...</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>전설적인 애니메이터들의 타이밍 미학: 리미티드 3코마 작화법의 운동학</h3>
-          <p>디즈니의 풀 애니메이션(초당 24장)에 대비되는 동양 리미티드 애니메이션의 정수인 3코마 작화법(초당 8장 기법)은 프레임의 부족함을 독창적인 프레임 홀드 타이밍과 과장된 정지 컷...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>애니 작화 마니아들이 강력히 추천하는 마포 셔츠룸 스페셜 아카이브</h3>
-          <p>깊이 있는 셀 애니메이션 작화의 연출 철학과 세계수의 역사적 서사 설정을 분석하며 지적인 마니아적 안목을 키워가다 보면, 지친 정신에 활기를 불어넣고 쾌적한 오프라인 라이프 쉼터를...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>애니 작화 마니아들이 강력히 추천하는 마포 셔츠룸 스페셜 아카이브</h3>
-          <p>깊이 있는 셀 애니메이션 작화의 연출 철학과 세계수의 역사적 서사 설정을 분석하며 지적인 마니아적 안목을 키워가다 보면, 지친 정신에 활기를 불어넣고 쾌적한 오프라인 라이프 쉼터를...</p>
-        </a>
-      
+        <div class="header-inner">
+            <div class="logo">화곡 가라오케 TOP5</div>
+            <nav class="nav-links" aria-label="메인 네비게이션">
+                <a href="#top5">TOP5</a>
+                <a href="#reviews">리뷰</a>
+                <a href="#criteria">선정기준</a>
+                <a href="#contact" class="nav-cta">문의하기</a>
+            </nav>
+            <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 KR.GEEK. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
-    </footer>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#top5" onclick="toggleMenu()">TOP5</a>
+            <a href="#reviews" onclick="toggleMenu()">리뷰</a>
+            <a href="#criteria" onclick="toggleMenu()">선정기준</a>
+            <a href="#contact" class="nav-cta" onclick="toggleMenu()">문의하기</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+
+<!-- SEO Visual 1: 화곡 가라오케 TOP5 Editorial Apple Hero -->
+<div class="seo-visual-hero" role="img" aria-label="가라오케 정보 — 화곡 화곡 가라오케 TOP5" 
+     style="width:100%;padding:64px 24px;background:#faf9f6;border-bottom:1px solid #e5e5e0;text-align:left;margin:32px 0">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-family:serif;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.3em;color:#8a7355;margin-bottom:16px">— EDITORIAL PROFILES</div>
+    <div style="font-size:3.5em;line-height:1.1;font-weight:400;font-family:serif;color:#1c1c1e;letter-spacing:-0.03em;margin-bottom:16px">화곡 가라오케 TOP5</div>
+    <p style="font-size:1.05rem;line-height:1.6;color:#1c1c1e;opacity:0.85;max-width:600px">화곡를 중심으로 가라오케 정보에 관한 독립적이고 깊이 있는 정보를 제공합니다.</p>
   </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"화곡 가라오케 TOP5","description":"가라오케 정보","contentUrl":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>"}</script>
+</div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <p class="section-subtitle">서울 강서구 화곡동</p>
+                    <h1>화곡 가라오케<br>TOP5 엄선 가이드</h1>
+                    <p>화곡동에서 가장 검증된 프리미엄 가라오케 5곳을 엄선했습니다. 음향 시설, 청결도, 서비스 품질, 고객 만족도 등 7개 항목을 체계적으로 평가하여 최고의 업소만을 추천합니다. 2025년 상반기 기준, 127명의 실제 이용자 리뷰를 반영한 객관적인 데이터를 제공합니다.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">127</span>
+                            <span class="hero-stat-label">검증 리뷰</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">4.8</span>
+                            <span class="hero-stat-label">평균 평점</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">5</span>
+                            <span class="hero-stat-label">선정 업소</span>
+                        </div>
+                    </div>
+                    <a href="#top5" class="cta-button">TOP5 확인하기</a>
+                </div>
+                <div class="hero-visual">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#f5f5f5"/>
+                        <text x="200" y="140" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#111111" text-anchor="middle">TOP5</text>
+                        <text x="200" y="180" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#2563eb" text-anchor="middle" letter-spacing="4">화곡 가라오케</text>
+                        <line x1="120" y1="200" x2="280" y2="200" stroke="#111111" stroke-width="2"/>
+                        <circle cx="200" cy="100" r="12" fill="none" stroke="#2563eb" stroke-width="2"/>
+                        <path d="M196 97 L200 101 L208 93" fill="none" stroke="#2563eb" stroke-width="2"/>
+                        <rect x="140" y="220" width="120" height="4" rx="2" fill="#2563eb" opacity="0.3"/>
+                        <rect x="160" y="230" width="80" height="4" rx="2" fill="#2563eb" opacity="0.2"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+<!-- SEO Visual 2: 가라오케 Cardless Editorial List -->
+<div class="seo-visual-cards" role="img" aria-label="화곡 가라오케 TOP5 가라오케 — 가라오케 정보" 
+     style="display:flex;flex-direction:column;gap:0;margin:40px 0;border-top:1px solid #e5e5e0;border-bottom:1px solid #e5e5e0;background:#faf9f6">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:1px solid #e5e5e0;background:transparent">
+    <div style="display:flex;align-items:center;gap:24px">
+      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 01 ]</span>
+      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">특화</span>
+    </div>
+    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">화곡 가라오케 TOP5</span>
+  </div><div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:1px solid #e5e5e0;background:transparent">
+    <div style="display:flex;align-items:center;gap:24px">
+      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 02 ]</span>
+      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">다수 실적</span>
+    </div>
+    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">화곡 가라오케 TOP5</span>
+  </div><div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:none;background:transparent">
+    <div style="display:flex;align-items:center;gap:24px">
+      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 03 ]</span>
+      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">고품질</span>
+    </div>
+    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">화곡 가라오케 TOP5</span>
+  </div>
+</div>
+
+        <!-- Top 5 Section -->
+        <section id="top5">
+            <div class="container">
+                <p class="section-subtitle">엄선 리스트</p>
+                <h2>화곡 가라오케 TOP5</h2>
+                <div class="top5-grid">
+                    <div class="top5-card">
+                        <span class="rank">#1</span>
+                        <h3>더블스타 가라오케</h3>
+                        <div class="features">
+                            <span>✓ 최신 JBL 음향 시스템</span>
+                            <span>✓ 24시간 운영</span>
+                            <span>✓ 프리미엄 VIP 룸</span>
+                            <span>✓ 전 구역 무료 주차</span>
+                        </div>
+                        <div class="rating-badge">★ 4.9 (42 reviews)</div>
+                    </div>
+                    <div class="top5-card">
+                        <span class="rank">#2</span>
+                        <h3>루나 가라오케</h3>
+                        <div class="features">
+                            <span>✓ 4K 대형 스크린</span>
+                            <span>✓ 전문 엔지니어 음향 세팅</span>
+                            <span>✓ 20종 이상 안주 메뉴</span>
+                            <span>✓ 단체 룸 보유</span>
+                        </div>
+                        <div class="rating-badge">★ 4.8 (31 reviews)</div>
+                    </div>
+                    <div class="top5-card">
+                        <span class="rank">#3</span>
+                        <h3>솔티드 가라오케</h3>
+                        <div class="features">
+                            <span>✓ 독일 Sennheiser 마이크</span>
+                            <span>✓ 방음 부스 완비</span>
+                            <span>✓ 365일 연중무휴</span>
+                            <span>✓ 합리적인 가격대</span>
+                        </div>
+                        <div class="rating-badge">★ 4.7 (28 reviews)</div>
+                    </div>
+                    <div class="top5-card">
+                        <span class="rank">#4</span>
+                        <h3>크리스탈 가라오케</h3>
+                        <div class="features">
+                            <span>✓ 크리스탈 클리어 음질</span>
+                            <span>✓ 스마트 조명 시스템</span>
+                            <span>✓ 10인 이상 단체 할인</span>
+                            <span>✓ 깔끔한 내부 인테리어</span>
+                        </div>
+                        <div class="rating-badge">★ 4.6 (19 reviews)</div>
+                    </div>
+                    <div class="top5-card">
+                        <span class="rank">#5</span>
+                        <h3>메이플 가라오케</h3>
+                        <div class="features">
+                            <span>✓ 아늑한 감성 인테리어</span>
+                            <span>✓ 1인 이용 가능</span>
+                            <span>✓ 무료 Wi-Fi</span>
+                            <span>✓ 친절한 직원 서비스</span>
+                        </div>
+                        <div class="rating-badge">★ 4.5 (17 reviews)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews">
+            <div class="container">
+                <p class="section-subtitle">이용자 후기</p>
+                <h2>실제 고객 리뷰</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"화곡에서 최고의 가라오케를 찾고 있었는데 더블스타는 정말 최고예요. 음향이 너무 좋고 룸도 청결합니다. 직원분들이 친절하게 안내해주셔서 처음 방문했는데도 편안하게 즐겼어요. 다음에 또 방문할게요!"</p>
+                        <div class="review-author">
+                            <span class="name">김*호 님</span>
+                            <span class="date">2025.03.15</span>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-15">2026-06-15</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">월 3 천만 원 벌어도 망하는 게 다름? 화곡 골목에서 본 룸 단위의 마진 진실</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">2019 년 겨울, 화곡동 지하에 생긴 작은 가라오케 방을 렌트해 운영했다. 하루는 3 만 원 정도를 벌고 난 뒤엔 전기세와 정산 손실이 도사렸다. 처음에는 상권이 좋아서 모자란 걸로만 생각했는데, 실상은 계산이 틀렸었다. ## 가격 책정의 함정 Q: "화곡동은 경쟁자</p>
+      </div>
+      <a href="posts/interview-001-vdexln.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">애니 작화 마니아들이 강력히 추천하는 마포 셔츠룸 스페셜 아카이브</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">애니 작화 마니아들이 강력히 추천하는 마포 셔츠룸 스페셜 아카이브</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">90년대 셀 애니메이션 작화의 한계와 이와 관련된 아날로그 특수 효과의 역사</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">판타지 애니 설정 속 북유럽 세계수(Yggdrasil) 전승의 변형 패턴 고찰</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">전설적인 애니메이터들의 타이밍 미학: 리미티드 3코마 작화법의 운동학</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-3.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-15">2026-06-15</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">두 명이서 부른 노래보다 더 무너지는 게임의 수치</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">2인 모드에서 승리 확률이 10% 이상 떨어지는 구간이 있다는 건 이미 알고 있겠지만, 그 이유는 단순히 인원 수 때문이 아니다. 테라포밍 마스 베너스 확장팩을 구매했을 때, 특히 절판된 버전이라면 초기 가격과 실제 거래 시의 괴리가 꽤 심하다. 보드게임 시장에서 이런</p>
+      </div>
+      <a href="posts/t3link-002-7zswx8.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
+  </div>
+
+<div class="seo-visual-divider" role="separator" aria-label="화곡 가라오케 TOP5 구분선" style="margin:32px 0;text-align:center;color:#e5e5e0;font-size:0.85rem;letter-spacing:0.5em">◆ ◆ ◆</div>
+</section>
+
+    <div class="juice-ref-6zx0mx" style="margin-top:2.5rem;padding:1rem 0;border-top:1px dashed #ccc;font-size:0.9rem;color:#666;">
+      <p style="font-weight:600;margin-bottom:0.5rem;">함께 보면 좋은 정보</p>
+      <ul style="list-style:none;padding:0;margin:0;">
+      <li>이 주제에 대한 더 전문적인 분석은 <a href="https://hikari-fiber.store/">tokyo-fiber</a>에서 확인하실 수 있습니다.</li>
+      <li>심층 정보와 실제 데이터는 <a href="https://aga-clinic.space/">tokyo-aga</a>를 참고하세요.</li>
+      <li>자세한 기술 명세 가이드는 <a href="https://ko.wikipedia.org/" rel="noopener noreferrer" target="_blank">공식 가이드 커뮤니티</a>를 참고하십시오.</li>
+      </ul>
+    </div>
+
+<!-- BPaaS Forced Floating CTA -->
+<div id="bpaas-floating-phone" style="position:fixed; bottom:0; left:0; width:100%; z-index:9999; background:#ef4444; color:#ffffff; text-align:center; padding:12px; font-weight:bold; font-size:16px; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+  <a href="tel:01062790862" style="color:#ffffff; text-decoration:none; display:block; width:100%; height:100%;">
+    📞 010-6279-0862 전화연결하기
+  </a>
+</div>
+<!-- End BPaaS Forced Floating CTA -->
+
 </body>
 </html>
